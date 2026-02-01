@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Camera</title>
+	</head>
+	
+	<body>
+		<div id="app-container">
+			<div id="video-container">
+				<video id="camera-preview"></video>
+				<canvas id="frame-capture-canvas"></canvas>
+			</div>
+			<div id="toolbar">
+				<button class="toolbar-btn" id="capture-btn" onclick="captureFrame()">📷</button>
+				<button class="toolbar-btn" id="play-btn" onclick="playBtnClicked()">▶</button>
+				<input type="number" min="1" max="60" value="12" class="toolbar-num-input" id="frame-rate-input">
+				<button class="toolbar-btn" id="save-btn" onclick="save()">💾</button>
+			</div>
+			<div id="timeline">
+				
+			</div>
+		</div>
+	</body>
+	
+	<script src="vendor/gif.js"></script>
+	<script src="js/main.js"></script>
+</html>
