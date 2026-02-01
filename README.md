@@ -6,5 +6,7 @@
  - [ ] Preview Frames on Click
  - [ ] Rearranging Frames
  - [ ] Onion Skinning
+ - [ ] Camera Selection
+ - [ ] Camera Mirroring
  - [ ] Export Individual Frames as ZIP
  - [ ] Export to MP4
