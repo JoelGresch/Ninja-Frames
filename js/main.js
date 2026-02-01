@@ -15,7 +15,8 @@ let animationLoop = null
 navigator.mediaDevices.getUserMedia({video: true})
 	.then((stream) => {
 		cameraPreview.srcObject = stream
-		cameraPreview.play()
+		cameraPreview.autoplay = true
+		cameraPreview.playsinline = true
 	})
 	.then(() => {
 	})
