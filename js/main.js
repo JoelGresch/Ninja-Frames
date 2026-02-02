@@ -1,9 +1,11 @@
 
 const cameraPreview = document.getElementById("camera-preview")
 const frameCaptureCanvas = document.getElementById("frame-capture-canvas")
+const ctx = frameCaptureCanvas.getContext("2d", { willReadFrequently: true })
 const captureBtn = document.getElementById("capture-btn")
 const timeline = document.getElementById("timeline")
 const playBtn = document.getElementById("play-btn")
+const saveBtn = document.getElementById("save-btn")
 const frameRateInput = document.getElementById("frame-rate-input")
 
 let frames = []
@@ -37,7 +39,6 @@ function captureFrame() {
 		return
 	}
 	
-	let ctx = frameCaptureCanvas.getContext("2d")
 	ctx.drawImage(cameraPreview, 0, 0)
 	// console.log("Frame Captured")
 	
@@ -89,7 +90,6 @@ function pause() {
 }
 
 function animate() {
-	let ctx = frameCaptureCanvas.getContext("2d")
 	ctx.drawImage(frames[currentAnimationFrame], 0, 0)
 	
 	currentAnimationFrame++
@@ -115,6 +115,8 @@ function indexFrameIds() {
 }
 
 function save() {
+	saveBtn.disabled = true
+
 	let gif = new GIF({
 		repeat: 0,
 		quality: 1,
@@ -139,6 +141,7 @@ function save() {
 		document.body.appendChild(downloadLink)
 		downloadLink.click()
 		document.body.removeChild(downloadLink)
+		saveBtn.disabled = false
 	})
 	
 	gif.render()
